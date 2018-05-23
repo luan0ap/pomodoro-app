@@ -1,20 +1,37 @@
 import React, { Component } from 'react'
-import logo from './logo.svg'
-import './App.css'
+
+import AppContent from './components/AppContent'
 
 class App extends Component {
+  constructor () {
+    super()
+    this.state = {
+      timer: 0
+    }
+  }
+
+  startTimer () {
+    setInterval(() => {
+      this.setState({
+        timer: this.state.timer + 1
+      })
+    }, 1000);
+  }
+
+  resetTimer () {
+    this.setState({
+      timer: 0
+    })
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+      <AppContent 
+      startTimer={this.startTimer.bind(this)}
+      resetTimer={this.resetTimer.bind(this)}
+      timer={this.state.timer}
+      />
+    )
   }
 }
 
