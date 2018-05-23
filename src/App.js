@@ -11,24 +11,22 @@ class App extends Component {
   }
 
   startTimer () {
-    setInterval(() => {
+    this.counterTimer = setInterval(() => {
       this.setState({
         timer: this.state.timer + 1
       })
     }, 1000);
   }
 
-  resetTimer () {
-    this.setState({
-      timer: 0
-    })
+  stopTimer () {
+    clearInterval(this.counterTimer)
   }
 
   render() {
     return (
       <AppContent 
       startTimer={this.startTimer.bind(this)}
-      resetTimer={this.resetTimer.bind(this)}
+      stopTimer={this.stopTimer.bind(this)}
       timer={this.state.timer}
       />
     )

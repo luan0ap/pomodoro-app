@@ -1,24 +1,14 @@
 import React from 'react'
 import Actions from './Actions'
+import Values from './Values'
+import Timer from './Timer'
 
-const AppContent = ({startTimer, timer, resetTimer}) => (
+const AppContent = ({startTimer, stopTimer, timer}) => (
   <div className='app'>
     <h1> Pomodoro App </h1>
-
-    <label>
-      Pomodoro Time <br/>
-      <input type='text' />
-    </label>  <br/>  <br/>
-
-    <label>
-      Break Time  <br/>
-      <input type='text' />
-    </label>  <br/>
-    
-    <Actions startTimer={startTimer} resetTimer={resetTimer} />
-    <div className='counter'>
-      <p> Time: {timer} </p>
-    </div>
+    <Values />
+    <Actions startTimer={startTimer} stopTimer={stopTimer} />
+    <Timer children={timer} />
   </div>
 )
 

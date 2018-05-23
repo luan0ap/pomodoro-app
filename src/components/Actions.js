@@ -2,15 +2,33 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Button = styled.button`
-  background: ${props => props.start ? '#05c46b' : '#ff3f34'}
+  color: #FFF
+  cursor: pointer
+  border-radius: 2px
+  border: none
+  font-size: 20px
+  margin: 5px
   height: 50px
   width: 100px
+  opacity: 0.9
+
+  &:active {
+    opacity: 1
+  }
 `
 
-const Actions = ({startTimer, resetTimer}) => (
+const StartButton = Button.extend`
+  background: #2BB760
+`
+
+const StopButton = Button.extend`
+  background: #A92F41
+`
+
+const Actions = ({startTimer, stopTimer}) => (
   <div className='actions'>
-    <Button onClick={startTimer} start> Start </Button>
-    <Button onClick={resetTimer}> Reset </Button>
+    <StartButton onClick={startTimer}> Start </StartButton>
+    <StopButton onClick={stopTimer}> Stop </StopButton>
   </div>
 )
 
