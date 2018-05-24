@@ -25,10 +25,15 @@ const StopButton = Button.extend`
   background: #A92F41
 `
 
-const Actions = ({startTimer, stopTimer}) => (
+const ResetButton = Button.extend`
+  background: blue
+`
+
+const Actions = ({startTimer, stopTimer, resetTimer}) => (
   <div className='actions'>
     <StartButton onClick={startTimer}> Start </StartButton>
     <StopButton onClick={stopTimer}> Stop </StopButton>
+    <ResetButton onClick={resetTimer}> Reset </ResetButton>
   </div>
 )
 

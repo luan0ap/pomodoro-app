@@ -13,13 +13,21 @@ class App extends Component {
   startTimer () {
     this.counterTimer = setInterval(() => {
       this.setState({
-        timer: this.state.timer + 1
+        timer: this.value --
       })
-    }, 1000);
+    }, 1000)
   }
 
   stopTimer () {
     clearInterval(this.counterTimer)
+  }
+
+  resetTimer() {
+    this.value = 0
+  }
+
+  getValue(e) {
+    this.value = e.target.value
   }
 
   render() {
@@ -27,7 +35,10 @@ class App extends Component {
       <AppContent 
       startTimer={this.startTimer.bind(this)}
       stopTimer={this.stopTimer.bind(this)}
+      resetTimer={this.resetTimer.bind(this)}
+      getValue={this.getValue.bind(this)}
       timer={this.state.timer}
+      
       />
     )
   }

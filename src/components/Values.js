@@ -7,11 +7,11 @@ const Input = styled.input`
   margin: 5px
 `
 
-const Values = ({handleValues}) => (
+const Values = ({handleValues, getValue}) => (
   <div className='values'>
-      <Input type='text' placeholder='Pomodoro Time'/>
+      <Input type='text' placeholder='Pomodoro Time' onChange={getValue} />
       <br />
-      <Input type='text' placeholder='Break Time' />
+      <Input type='text' placeholder='Break Time' onChange={getValue} />
   </div>
 )
 
