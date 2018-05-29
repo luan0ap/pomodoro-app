@@ -11,7 +11,6 @@ const Values = ({handleValues, getValue}) => (
   <div className='values'>
       <Input type='text' placeholder='Pomodoro Time' onChange={getValue} />
       <br />
-      <Input type='text' placeholder='Break Time' onChange={getValue} />
   </div>
 )
 

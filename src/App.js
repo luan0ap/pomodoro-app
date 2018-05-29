@@ -6,7 +6,8 @@ class App extends Component {
   constructor () {
     super()
     this.state = {
-      timer: 0
+      timer: 0,
+      value: null
     }
   }
 
@@ -23,11 +24,14 @@ class App extends Component {
   }
 
   resetTimer() {
-    this.value = 0
+    this.setState({
+      timer: 0
+    })
+    clearInterval(this.counterTimer)
   }
 
   getValue(e) {
-    this.value = e.target.value
+    this.value = e.target.value * 60
   }
 
   render() {
@@ -38,7 +42,6 @@ class App extends Component {
       resetTimer={this.resetTimer.bind(this)}
       getValue={this.getValue.bind(this)}
       timer={this.state.timer}
-      
       />
     )
   }
