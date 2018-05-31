@@ -12,6 +12,9 @@ class App extends Component {
   }
 
   startTimer () {
+    if(this.value === null) {
+      console.log('oi')
+    }
     this.counterTimer = setInterval(() => {
       this.setState({
         timer: this.value --

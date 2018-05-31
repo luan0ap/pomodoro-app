@@ -1,9 +1,18 @@
 body {
-  background-color: #181A1B;
+  background: #0052D4;
+background: -webkit-linear-gradient(to right, #6FB1FC, #4364F7, #0052D4);
+background: linear-gradient(to right, #6FB1FC, #4364F7, #0052D4);
+
 }
 
 .app {
   font-family: 'Montserrat', sans-serif;
   text-align: center;
   color: #FFF;
+}
+
+p > a {
+  color: #FFF;
+  text-decoration: none;
+  font-size: 20px;
 }

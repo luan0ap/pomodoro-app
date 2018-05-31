@@ -7,7 +7,7 @@ const TimerFont = styled.p`
 `
 const Timer = ({ children }) => (
   <div className='timer'>
-    <TimerFont> Time: {children} </TimerFont>
+    <TimerFont> Tempo: {children} </TimerFont>
   </div>
 )
 
