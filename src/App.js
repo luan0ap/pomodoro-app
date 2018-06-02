@@ -33,8 +33,16 @@ class App extends Component {
     clearInterval(this.counterTimer)
   }
 
+  timer(seconds) {
+    const minutesPart = Math.floor(seconds / 60)
+    const secondsPart = seconds - minutesPart * 60
+    return `${minutesPart}:${secondsPart}`
+  }
+
   getValue(e) {
-    this.value = e.target.value * 60
+    this.setState({
+      value: this.timer(e.target.value)
+    })
   }
 
   render() {
