@@ -1,61 +1,58 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
-import AppContent from './components/AppContent'
+import Home from "./containers/Home";
 
 class App extends Component {
-  constructor () {
-    super()
+  constructor() {
+    super();
     this.state = {
-      timer: 0,
-      value: null
-    }
+      value: ""
+    };
   }
 
-  startTimer () {
-    if(this.value === null) {
-      console.log('oi')
-    }
-    this.counterTimer = setInterval(() => {
-      this.setState({
-        timer: this.value --
-      })
-    }, 1000)
-  }
+  timer = () => {
+    this.interval = setInterval(() => {
+      this.setState(prevState => ({
+        value: ++prevState.value
+      }));
+    }, 1000);
+  };
 
-  stopTimer () {
-    clearInterval(this.counterTimer)
-  }
+  getSeconds = value => {
+    return `0${value % 60}`.slice(-2);
+  };
 
-  resetTimer() {
+  getMinutes = value => {
+    return Math.floor(value / 60);
+  };
+
+  startTimer = () => {
+    this.timer();
+  };
+
+  pauseTimer = () => {
+    clearInterval(this.interval);
+  };
+
+  resetTimer = () => {
     this.setState({
-      timer: 0
-    })
-    clearInterval(this.counterTimer)
-  }
-
-  timer(seconds) {
-    const minutesPart = Math.floor(seconds / 60)
-    const secondsPart = seconds - minutesPart * 60
-    return `${minutesPart}:${secondsPart}`
-  }
-
-  getValue(e) {
-    this.setState({
-      value: this.timer(e.target.value)
-    })
-  }
+      value: 0
+    });
+  };
 
   render() {
+    const { value } = this.state;
     return (
-      <AppContent 
-      startTimer={this.startTimer.bind(this)}
-      stopTimer={this.stopTimer.bind(this)}
-      resetTimer={this.resetTimer.bind(this)}
-      getValue={this.getValue.bind(this)}
-      timer={this.state.timer}
+      <Home
+        value={value}
+        getMinutes={this.getMinutes}
+        getSeconds={this.getSeconds}
+        startTimer={this.startTimer}
+        pauseTimer={this.pauseTimer}
+        resetTimer={this.resetTimer}
       />
-    )
+    );
   }
 }
 
-export default App
+export default App;
