@@ -1,19 +1,19 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import Home from "./containers/Home";
+import Home from './containers/Home';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      value: ""
+      value: '',
     };
   }
 
   timer = () => {
     this.interval = setInterval(() => {
       this.setState(prevState => ({
-        value: ++prevState.value
+        value: ++prevState.value,
       }));
     }, 1000);
   };
@@ -36,7 +36,7 @@ class App extends Component {
 
   resetTimer = () => {
     this.setState({
-      value: 0
+      value: 0,
     });
   };
 

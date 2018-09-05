@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import Actions from "../../components/Actions";
+import Actions from '../../components/Actions';
 // import Input from "../../components/Input";
-import Value from "../../components/Value";
+import Value from '../../components/Value';
 
 const Home = ({
   value,
@@ -10,7 +10,7 @@ const Home = ({
   pauseTimer,
   resetTimer,
   getMinutes,
-  getSeconds
+  getSeconds,
 }) => {
   return (
     <div className="pomodoro">
